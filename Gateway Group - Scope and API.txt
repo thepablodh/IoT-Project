@@ -1,0 +1,20 @@
+Gateway group - Akin, Haagenson, Rushing
+
+Scope - We are responsible for building and running a server in the networking lab connected to a switch 
+for physical ethernet connection to the raspberry pi nodes. We anticipate receiving muster information over MQTT,
+according to the following API, but the specifics of the MQTT architecture will be given to us by the Networking Group.
+
+Flow of information:
+- We will get information over MQTT from the nodes
+- The information will be stored in a mySQL database on the gateway
+- We will build an Apache2 server and a simple HTML front-end for interface with the mySQL server.
+
+We are writing our portion in Java (because we need Java practice for thesis work).
+
+API:
+Here is the information that we think we need to receive over MQTT as a single string for each login, in this order, comma delimited:
+1. Sending node identifier as a string (node_id)
+2. MAC address (with colons)
+3. Time stamp (formatted as date and minute in integer form from 00:00)
+
+Example string: "node1,01:23:45:67:89:ab,2016-08-18 638"
