@@ -13,8 +13,10 @@ We are writing our portion in Java (because we need Java practice for thesis wor
 
 API:
 Here is the information that we think we need to receive over MQTT as a single string for each login, in this order, comma delimited:
-1. Sending node identifier as a string (node_id)
+1. Sending node identifier as a topic string (node_id)
 2. MAC address (with colons)
-3. Time stamp (formatted as date and minute in integer form from 00:00)
+3. Time stamp (formatted as date and time: YYYY-MM-DD HH:MM:SS.MSEC)
 
-Example string: "node1,01:23:45:67:89:ab,2016-08-18 638"
+Example topic and message:
+    topic: "node1"
+    message: "01:23:45:67:89:ab,2016-08-18 18:48:05.123456"
