@@ -14,8 +14,8 @@ public class gatewayMain implements mqttCaller {
     // Constructor which connects to MQTT, subscribes, and connects to mySQL database.
     private gatewayMain() {
         try {
-            musterDB = new musterDatabase();
-            mqttConn = new mqttConnection(this);
+            musterDB = new musterDatabase("172.16.1.144:3306", "muster", "musterAdmin", "musterAdmin");
+            mqttConn = new mqttConnection(this, "172.16.1.144:8883", "Gateway", "owntracks", "mosquitto");
             mqttConn.subscribe("Node1");
         } catch( Exception e) { e.printStackTrace(); }
     }
@@ -45,25 +45,25 @@ public class gatewayMain implements mqttCaller {
 
         print("-------------------------------------------------");
         try {
-            print("| mustered today: " + musterDB.didMusterToday("mpakin1@nps.edu"));
+            print("| mustered today: " + musterDB.didMusterToday("mpaki1@nps.edu"));
         } catch (Exception e) { print("| Error: "+e.getMessage()); }
         print("-------------------------------------------------");
-        try { Thread.sleep(1000); } catch(Exception e) {e.printStackTrace();}
+        try { Thread.sleep(1000); } catch(InterruptedException e) {e.printStackTrace();}
 
         // Send test muster.
         String nodeID = "Node1";
-        String MAC = "1:2:3:4";
+        String MAC = "1:2:3:5";
         String date = sdf.format(new Date());
         mqttConn.publish(nodeID, MAC + "," + date);
 
-        try { Thread.sleep(1000); } catch(Exception e) {e.printStackTrace();}
+        try { Thread.sleep(1000); } catch(InterruptedException e) {e.printStackTrace();}
         print("-------------------------------------------------");
         try {
-            print("| mustered today: " + musterDB.didMusterToday("mpakin1@nps.edu"));
+            print("| mustered today: " + musterDB.didMusterToday("mpaki1@nps.edu"));
         } catch (Exception e) { print("| Error: "+e.getMessage()); }
         print("-------------------------------------------------");
 
-        mqttConn.disconnect();
+        //mqttConn.disconnect();
     }
 
     public static void main(String args[]) {

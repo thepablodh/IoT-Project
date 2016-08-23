@@ -18,7 +18,7 @@ public class mqttConnection implements MqttCallback {
 
     // Class Variables
     private MqttClient CLIENT;
-    private String BROKER_URL = "tcp://172.16.1.143:8883";
+    private String BROKER_URL = "tcp://172.16.1.144:8883";
     private String CLIENT_ID = "Gateway";
     private String USERNAME = "owntracks";
     private String PASSWORD = "mosquitto";
@@ -36,7 +36,7 @@ public class mqttConnection implements MqttCallback {
 
     public mqttConnection(mqttCaller caller, String server, String clientID, String username, String password){
         callBack = caller;
-        BROKER_URL = server;
+        BROKER_URL = "tcp://"+server;
         CLIENT_ID = clientID;
         USERNAME = username;
         PASSWORD = password;

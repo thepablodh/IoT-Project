@@ -28,6 +28,20 @@ public class musterDatabase {
         }
     }
 
+    public musterDatabase(String server, String table, String username, String password) throws Exception{
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        try {
+            this.conn = DriverManager.getConnection("jdbc:mysql://"+server+"/"+table, username, password);
+            this.stmt = this.conn.createStatement();
+        } catch (Exception e ) {
+            toss("Could not connect to DB: " + e.getMessage());
+        }
+    }
+
     public boolean didMusterToday (String email) throws Exception {
         if(!doesStudentExist(email))
             toss("Student does not exist");
