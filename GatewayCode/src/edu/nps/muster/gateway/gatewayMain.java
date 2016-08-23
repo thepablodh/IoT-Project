@@ -63,6 +63,7 @@ public class gatewayMain implements mqttCaller {
         } catch (Exception e) { print("| Error: "+e.getMessage()); }
         print("-------------------------------------------------");
 
+        mqttConn.disconnect();
     }
 
     public static void main(String args[]) {
