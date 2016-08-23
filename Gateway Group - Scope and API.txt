@@ -17,6 +17,6 @@ Here is the information that we think we need to receive over MQTT as a single s
 2. MAC address (with colons)
 3. Time stamp (formatted as date and time: YYYY-MM-DD HH:MM:SS.MSEC)
 
-Example topic and message:
+Example MQTT topic and message:
     topic: "node1"
     message: "01:23:45:67:89:ab,2016-08-18 18:48:05.123456"
