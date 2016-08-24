@@ -21,7 +21,7 @@ public class musterDatabase {
             e.printStackTrace();
         }
         try {
-            this.conn = DriverManager.getConnection("jdbc:mysql://172.16.1.143:3306/muster", "musterAdmin", "musterAdmin");
+            this.conn = DriverManager.getConnection("jdbc:mysql://172.16.1.143:3306/musterWebpage", "musterAdmin", "musterAdmin");
             this.stmt = this.conn.createStatement();
         } catch (Exception e ) {
             toss("Could not connect to DB: " + e.getMessage());

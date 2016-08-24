@@ -3,7 +3,7 @@ package edu.nps.muster.gateway;
 import java.util.*;
 import java.text.*;
 
-// This is the main class that manages each captured muster request
+// This is the main class that manages each captured musterWebpage request
 
 public class gatewayMain implements mqttCaller {
 
@@ -14,7 +14,7 @@ public class gatewayMain implements mqttCaller {
     // Constructor which connects to MQTT, subscribes, and connects to mySQL database.
     private gatewayMain() {
         try {
-            musterDB = new musterDatabase("172.16.1.144:3306", "muster", "musterAdmin", "musterAdmin");
+            musterDB = new musterDatabase("172.16.1.144:3306", "musterWebpage", "musterAdmin", "musterAdmin");
             mqttConn = new mqttConnection(this, "172.16.1.144:8883", "Gateway", "owntracks", "mosquitto");
             mqttConn.subscribe("Node1");
         } catch( Exception e) { e.printStackTrace(); }
@@ -50,7 +50,7 @@ public class gatewayMain implements mqttCaller {
         print("-------------------------------------------------");
         try { Thread.sleep(1000); } catch(InterruptedException e) {e.printStackTrace();}
 
-        // Send test muster.
+        // Send test musterWebpage.
         String nodeID = "Node1";
         String MAC = "1:2:3:5";
         String date = sdf.format(new Date());

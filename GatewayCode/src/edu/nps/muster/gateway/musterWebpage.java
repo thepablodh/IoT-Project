@@ -12,7 +12,7 @@ import javax.servlet.http.*;
 
 import java.sql.*;
 
-public class muster extends HttpServlet {
+public class musterWebpage extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response)
     throws IOException, ServletException

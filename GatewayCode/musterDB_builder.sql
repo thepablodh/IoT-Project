@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 5.7.13, for Linux (x86_64)
 --
--- Host: localhost    Database: muster
+-- Host: localhost    Database: musterWebpage
 -- ------------------------------------------------------
 -- Server version	5.7.13-0ubuntu0.16.04.2
 
