@@ -26,11 +26,11 @@ public class muster extends HttpServlet {
 		
 		boolean didMuster = new musterDatabase().didMusterToday(email);
 				
-		if didMuster == True {
+		if (didMuster) {
 			//Return success message to the sending .html page
 			out.println("You have mustered today.");
 		} else {
-			out.println("You have NOT mustered today.")
+			out.println("You have NOT mustered today.");
 		}
 		
 
