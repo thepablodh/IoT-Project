@@ -13,7 +13,7 @@ import java.sql.*;
 /* Servlet used update a running balance of a personal expense database
  */
 
-public class balances extends HttpServlet {
+public class query extends HttpServlet {
   public void doGet(HttpServletRequest request,
                     HttpServletResponse response)
       throws ServletException, IOException {
